@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Realtime Collaborative Drawing</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Realtime Canvas</div>
+    <div class="tools">
+      <button id="tool-brush" data-tool="brush" class="tool active">Brush</button>
+      <button id="tool-eraser" data-tool="eraser" class="tool">Eraser</button>
+      <input id="color" type="color" value="#3b82f6" />
+      <input id="width" type="range" min="1" max="40" value="6" />
+      <button id="undo">Undo</button>
+      <button id="redo">Redo</button>
+      <input id="username" type="text" placeholder="Your name" maxlength="32" />
+    </div>
+  </header>
+  <main class="layout">
+    <aside class="sidebar">
+      <h3>Online</h3>
+      <ul id="users"></ul>
+      <div class="hint">
+        <div>Shortcuts</div>
+        <div>B = Brush</div>
+        <div>E = Eraser</div>
+        <div>Ctrl/Cmd+Z = Undo</div>
+        <div>Ctrl/Cmd+Shift+Z = Redo</div>
+      </div>
+    </aside>
+    <section class="stage">
+      <canvas id="canvas"></canvas>
+    </section>
+  </main>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/app.js" type="module"></script>
+</body>
+</html>
